@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Field</title>
+</head>
+<body>
+    <style>
+        textarea {
+            width: auto;
+            display: block;
+            margin-top: 5%;
+        }
+    </style>
+    <h1>Let's create magic</h1>
+    <form action="#">
+        <label for="input">
+            <textarea name="input" id="input" cols="30" rows="10" placeholder="insert magic words!"></textarea>
+        </label>
+        <label for="output">
+            <textarea name="output" id="output" cols="30" rows="10" placeholder="magic output"></textarea>
+        </label>
+    </form>
+
+    <script>
+        const input = document.getElementById("input");
+        const output = document.getElementById("output");
+
+        input.addEventListener('input', () => {
+            output.value = removeExtrSpace(input.value);
+        })
+
+        function removeExtrSpace(str) {
+            const  mag= str.replaceAll(/\s\s+/g, ' ');
+            return mag;
+        }
+    </script>
+</body>
+</html>
